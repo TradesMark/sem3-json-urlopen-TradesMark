@@ -10,9 +10,9 @@ import json
 def hacker_man(id):   # на вход подаём цифру-id пользователя на выходе имеем некоторые основные данные (возможен вывод большего числа данных)
     inquiry = "https://api.vk.com/method/users.get?user_ids={id}&fields=education&v=5.69".format(id = id)
 
-    try:     """проверка на существование id"""
-        inquiry_obj = urlopen(inquiry)
-        obj = json.loads(inquiry_obj.read())
+    try:     """ отлавливание исключений  """
+        inquiry_obj = urlopen(inquiry)  # отправка запроса на сервер 
+        obj = json.loads(inquiry_obj.read())   # перевод в json
     except:
         print('Ошибка')
     return obj
